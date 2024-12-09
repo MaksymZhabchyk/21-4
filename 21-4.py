@@ -9,7 +9,7 @@ def sort_custom(input_list):
     return numbers + strings
 
 # Вихідний список
-original_list = [3, 1, 2, 3, 4, 5, 6, 3, 4, 5, 7, 6, 5, 4, 3, 4, 5, 4, 3, 'Привіт', 'анаконда']
+original_list = [3, 1, 2, 3, 4, 5, 6, 3, 4, 5, 7, 6, 5, 4, 3, 4, 5, 4, 3, 'привіт', 'анаконда']
 
 # Видаляємо дублікати
 delet_list = remove_duplicates(original_list)
