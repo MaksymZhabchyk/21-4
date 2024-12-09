@@ -1,11 +1,13 @@
 def remove_duplicates(input_list):
-    """Видаляє повторювані елементи зі списку."""
+    #Видаляє повторювані елементи зі списку.
     return list(dict.fromkeys(input_list))
 
 def sort_custom(input_list):
-    """Сортує список: спочатку числа за зростанням, потім рядки за алфавітом."""
-    numbers = sorted([x for x in input_list if isinstance(x, (int, float))])
-    strings = sorted([x for x in input_list if isinstance(x, str)])
+    #Сортує список: спочатку числа за зростанням, потім рядки за алфавітом.
+    numbersArray = [x for x in input_list if isinstance(x, (int, float))]
+    numbers = sorted(numbersArray)
+    stringsArray = sorted([x for x in input_list if isinstance(x, str)])
+    strings = sorted(stringsArray)
     return numbers + strings
 
 # Вихідний список
