@@ -1,22 +1,11 @@
-def remove_duplicates(input_list):
-    #Видаляє повторювані елементи зі списку.
-    return list(dict.fromkeys(input_list))
+import telebot
+API_TOKEN = '7805788253:AAHxuPqzdAldrUkExevo4neG0t5ZXkvg-1w'
+bot = telebot.TeleBot(API_TOKEN)
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message, "Привіт! Це бот!")
+@bot.message_handler(func=lambda _: True)
+def echo(message):
+    bot.reply_to(message, message.text)
 
-def sort_custom(input_list):
-    #Сортує список: спочатку числа за зростанням, потім рядки за алфавітом.
-    numbersArray = [x for x in input_list if isinstance(x, (int, float))]
-    numbers = sorted(numbersArray)
-    stringsArray = sorted([x for x in input_list if isinstance(x, str)])
-    strings = sorted(stringsArray)
-    return numbers + strings
-
-# Вихідний список
-original_list = [3, 1, 2, 3, 4, 5, 6, 3, 4, 5, 7, 6, 5, 4, 3, 4, 5, 4, 3, 'привіт', 'анаконда']
-
-# Видаляємо дублікати
-delet_list = remove_duplicates(original_list)
-print("Список без повторень:", delet_list)
-
-# Сортуємо за правилами
-sorted_list = sort_custom(delet_list)
-print("Відсортований список:", sorted_list)
+bot.infinity_polling()
